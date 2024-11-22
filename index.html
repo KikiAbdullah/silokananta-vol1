@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id" class="notranslate" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta name="color-scheme" content="light only" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="google" content="notranslate" />
+    <title>SILOKANANTA</title>
+    <meta name="title" content="SILOKANANTA" />
+    <meta name="description" content="" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SILOKANANTA" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="images/heroes-graduation.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <!-- css -->
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="css/themesv2.css" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Knewave&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      :root {
+        --inv-bg: #a0d9f6;
+        --inv-base: #ffffff;
+        --inv-accent: #ff8601;
+        --inv-border: #ddef59;
+        --font-base: "Poppins", sans-serif;
+        --font-accent: "Chakra Petch", sans-serif;
+        --font-latin: "Knewave", system-ui;
+        --menu-bg: #f4ffff;
+        --menu-inactive: #a0d9f6;
+        --menu-active: #ff8502;
+        --btn-color: #ffffff;
+      }
+      .menu-item.is-active {
+        color: var(--inv-base) !important;
+        background-color: var(--menu-active) !important;
+      }
+    </style>
+    <style>
+      @import url("css/BrittanySignature.css");
+      @import url("css/fonts.css");
+      @import url("css/Heatwood.css");
+      .font-brittany-signature {
+        font-family: "Brittany Signature";
+        line-height: 1.6 !important;
+      }
+      .font-photograph-signature {
+        font-family: "Photograph Signature";
+        line-height: 1.6 !important;
+      }
+      .font-heatwood {
+        font-family: "Heatwood";
+        line-height: 3 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="app">
+      <div
+        id="modalOverlay"
+        class="modal-backdrop fade"
+        style="display: none"
+      ></div>
+      <!-- Loader -->
+      <div id="loader" class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+      </div>
+      <div
+        id="workspace-container"
+        class="position-fixed h-100 w-100"
+        style="overflow: hidden"
+      >
+        <div
+          id="panZoom"
+          class="position-fixed h-100 w-100"
+          style="
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform-origin: 50% 50%;
+          "
+        >
+          <div
+            class="h-100 w-100 d-flex align-items-center justify-content-center"
+          >
+            <div class="canvas not-open">
+              <!-- invitation -->
+              <div id="kunciKarya" data-guest="Nama Tamu" data-group="VIP">
+                <div class="kuncikarya_track">
+                  <ul class="kuncikarya_list">
+                    <li class="kuncikarya_slide kuncikarya_cover">
+                      <div
+                        class="container-mobile cover"
+                        style="background-image: url(images/bg.jpg)"
+                      >
+                        <div class="frame"></div>
+                        <div
+                          class="d-flex justify-content-center align-items-center flex-column"
+                          style="height: 100%"
+                        >
+                          <div
+                            class="text-center mb-2 editable animate__animated animate__fadeInDown animate__slower"
+                            style="font-size: 14px"
+                          >
+                            You're Invited to
+                          </div>
+                          <div class="mb-5">
+                            <div
+                              class="mx-auto animate__animated animate__zoomIn animate__slow image-editable mb-3"
+                              style="width: 150px; height: auto"
+                            >
+                              <img
+                                src="images/logo.png"
+                                alt="logo.png"
+                                style="
+                                  width: 100%;
+                                  height: 100%;
+                                  object-fit: contain;
+                                "
+                              />
+                            </div>
+                            <div
+                              class="text-center editable animate__animated animate__fadeInDown animate__slower font-weight-bold"
+                              style="
+                                font-size: 42px;
+                                color: rgb(4, 48, 95);
+                                line-height: 1;
+                              "
+                            >
+                              SILOKANANTA
+                            </div>
+                            <div
+                              class="text-center editable animate__animated animate__fadeInDown animate__slower"
+                              style="
+                                font-size: 14px;
+                                color: rgba(4, 48, 95, 0.82);
+                              "
+                            >
+                              Lomba Karya Anak Bunda Nusantara<br />
+                              Vol. Sidoarjo
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <button
+                              class="btn-open-invitation btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow"
+                              style="font-size: 14px"
+                            >
+                              Detail Acara
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="kuncikarya_slide">
+                      <div
+                        class="container-mobile"
+                        style="background-image: url(images/bg.jpg)"
+                      >
+                        <div class="frame"></div>
+                        <div
+                          class="d-flex flex-column justify-content-center align-items-center"
+                          style="height: 100%"
+                        >
+                          <div
+                            class="animate__animated animate__zoomIn animate__slow image-editable mb-3"
+                            style="width: 70%; height: auto"
+                          >
+                            <img
+                              src="images/logo.png"
+                              style="
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                              "
+                              alt="123487-gallery-1691117735.png"
+                            />
+                          </div>
+                          <div
+                            class="mt-4 w-100 d-flex align-items-center justify-content-between"
+                          >
+                            <div
+                              class="mx-auto animate__animated animate__zoomIn animate__slow image-editable mb-3"
+                              style="width: 100%; height: auto"
+                            >
+                              <img
+                                src="images/event-1.png"
+                                style="
+                                  width: 100%;
+                                  height: 100%;
+                                  object-fit: contain;
+                                "
+                                alt="event-1.png"
+                              />
+                            </div>
+                            <div
+                              class="mx-auto animate__animated animate__zoomIn animate__slow image-editable mb-3"
+                              style="width: 100%; height: auto"
+                            >
+                              <img
+                                src="images/event-2.png"
+                                style="
+                                  width: 100%;
+                                  height: 100%;
+                                  object-fit: contain;
+                                "
+                                alt="event-2.png"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="mb-3 animate__animated animate__fadeInDown animate__slower"
+                            style="
+                              min-width: 300px;
+                              height: 2px;
+                              background-image: linear-gradient(
+                                to right,
+                                rgba(246, 195, 90, 0),
+                                var(--inv-border),
+                                rgba(246, 195, 90, 0)
+                              ) !important;
+                            "
+                          ></div>
+                          <div style="display: flex; flex-direction: column">
+                            <div
+                              class="d-inline-flex mb-3 animate__animated animate__fadeInRight animate__fast"
+                              style="gap: 8px"
+                            >
+                              <span
+                                class="color-accent"
+                                style="color: rgba(4, 48, 95, 0.82)"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke-width="1.5"
+                                  stroke="currentColor"
+                                  height="24"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
+                                  ></path>
+                                </svg>
+                              </span>
+                              <div
+                                class="editable"
+                                style="
+                                  font-weight: bold;
+                                  font-size: 14.4px;
+                                  color: rgba(4, 48, 95, 0.82);
+                                "
+                              >
+                                Minggu, 22 Desember 2024
+                              </div>
+                            </div>
+                            <div
+                              class="d-inline-flex mb-3 animate__animated animate__fadeInRight animate__slow"
+                              style="gap: 8px"
+                            >
+                              <span
+                                class="color-accent"
+                                style="color: rgba(4, 48, 95, 0.82)"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke-width="1.5"
+                                  stroke="currentColor"
+                                  height="24"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                  ></path>
+                                </svg>
+                              </span>
+                              <div
+                                class="editable"
+                                style="
+                                  font-weight: bold;
+                                  font-size: 14.4px;
+                                  color: rgba(4, 48, 95, 0.82);
+                                "
+                              >
+                                Pukul 09.00 - 14.00 WIB
+                              </div>
+                            </div>
+                            <div
+                              class="d-inline-flex mb-3 animate__animated animate__fadeInRight animate__slower"
+                              style="gap: 8px"
+                            >
+                              <span
+                                class="color-accent"
+                                style="color: rgba(4, 48, 95, 0.82)"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke-width="1.5"
+                                  stroke="currentColor"
+                                  height="24"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                                  ></path>
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                                  ></path>
+                                </svg>
+                              </span>
+                              <div
+                                class="editable"
+                                style="
+                                  font-weight: bold;
+                                  font-size: 14.4px;
+                                  color: rgba(4, 48, 95, 0.82);
+                                "
+                              >
+                                Transmart Sidoarjo
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            data-datetime="2024-12-22T09:00"
+                            class="countdown-wrapper d-flex flex-column animate__animated animate__fadeInUp animate__slower"
+                          >
+                            <div class="countdown text-center">
+                              <div
+                                class="countdown-item day"
+                                style="min-width: 55px"
+                              >
+                                <div
+                                  class="number"
+                                  style="color: rgb(255 255 255)"
+                                >
+                                  00
+                                </div>
+                                <div
+                                  class="text editable"
+                                  style="
+                                    color: rgb(255, 255, 255);
+                                    font-size: 12px;
+                                  "
+                                >
+                                  Hari
+                                </div>
+                              </div>
+                              <div
+                                class="countdown-item hour"
+                                style="min-width: 55px"
+                              >
+                                <div
+                                  class="number"
+                                  style="color: rgb(255 255 255)"
+                                >
+                                  00
+                                </div>
+                                <div
+                                  class="text editable"
+                                  style="
+                                    color: rgb(255, 255, 255);
+                                    font-size: 12px;
+                                  "
+                                >
+                                  Jam
+                                </div>
+                              </div>
+                              <div
+                                class="countdown-item minute"
+                                style="min-width: 55px"
+                              >
+                                <div
+                                  class="number"
+                                  style="color: rgb(255 255 255)"
+                                >
+                                  00
+                                </div>
+                                <div
+                                  class="text editable"
+                                  style="
+                                    color: rgb(255, 255, 255);
+                                    font-size: 12px;
+                                  "
+                                >
+                                  Menit
+                                </div>
+                              </div>
+                              <div
+                                class="countdown-item second"
+                                style="min-width: 55px"
+                              >
+                                <div
+                                  class="number"
+                                  style="color: rgb(255 255 255)"
+                                >
+                                  00
+                                </div>
+                                <div
+                                  class="text editable"
+                                  style="
+                                    color: rgb(255, 255, 255);
+                                    font-size: 12px;
+                                  "
+                                >
+                                  Detik
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="kuncikarya_slide">
+                      <div
+                        class="container-mobile"
+                        style="background-image: url(images/bg.jpg)"
+                      >
+                        <div class="frame"></div>
+                        <div
+                          class="d-flex justify-content-center align-items-center"
+                          style="height: 100%"
+                        >
+                          <div style="width: 100%">
+                            <div>
+                              <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5063.136986614891!2d112.71252278817977!3d-7.440225647125306!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e13f2cf877eb%3A0xbbf69affca7432a6!2sTRANSMART!5e1!3m2!1sen!2sid!4v1732248392689!5m2!1sen!2sid"
+                                width="100%"
+                                height="400"
+                                style="border-radius: 20px"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                              ></iframe>
+                              <div
+                                class="text-center animate__animated animate__fadeInUp animate__slow"
+                              >
+                                <div
+                                  class="editable color-accent"
+                                  style="
+                                    font-weight: bold;
+                                    font-size: 14.4px;
+                                    color: rgba(4, 48, 95, 0.82);
+                                  "
+                                >
+                                  Transmart Sidoarjo
+                                </div>
+                                <div
+                                  class="editable mb-3"
+                                  style="
+                                    font-weight: bold;
+                                    font-size: 12px;
+                                    color: rgba(4, 48, 95, 0.82);
+                                  "
+                                >
+                                  Jl. Mayjend Sungkono, Pagerwojo, Kec.Buduran,
+                                  Kab.Sidoarjo, Jawa Timur<br />
+                                </div>
+                                <a
+                                  href="https://maps.app.goo.gl/ExgDiJF19yRLUMgv6"
+                                  class="link btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow"
+                                  target="_blank"
+                                  rel="nofollow noreferrer noopener"
+                                >
+                                  Petunjuk Ke Lokasi
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="kuncikarya_slide">
+                      <div
+                        class="container-mobile"
+                        style="background-image: url(images/bg.jpg)"
+                      >
+                        <div class="frame"></div>
+                        <div
+                          class="watermark d-flex flex-column justify-content-center align-items-center"
+                          style="height: 100%"
+                        >
+                          <div class="text-center" style="margin-bottom: 10vh">
+                            <div class="mb-3">
+                              <div
+                                class="mx-auto animate__animated animate__zoomIn animate__slow image-editable"
+                                style="width: 150px; height: auto"
+                              >
+                                <img
+                                  src="images/logo.png"
+                                  style="
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                  "
+                                  alt="123487-gallery-1691117735.png"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="editable animate__animated animate__fadeInDown animate__slow"
+                              style="font-size: 14px"
+                            >
+                              Demikian undangan ini kami sampaikan. Semoga
+                              Bapak/Ibu berkenan hadir dalam momen istimewa ini.
+                            </div>
+                            <div
+                              class="mt-4 animate__animated animate__zoomIn animate__slower"
+                              style="font-size: 14px"
+                            >
+                              <div
+                                class="text-center editable"
+                                style="font-size: 12px"
+                              >
+                                SCAN CODE
+                              </div>
+                              <div
+                                class="p-2 bg-white rounded mx-auto"
+                                style="width: 107px"
+                              >
+                                <img
+                                  src="images/123487-gallery-1691120065.png"
+                                  width="80"
+                                  height="80"
+                                  alt="123487-gallery-1691120065.png"
+                                />
+                              </div>
+                            </div>
+                            <div class="watermark-placeholder mt-5"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="smMenu" class="kuncikarya_menu">
+                <ul class="kuncikarya_menu_list">
+                  <li class="kuncikarya_menu_item">
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.144 20.782v-3.067c0-.777.632-1.408 1.414-1.413h2.875c.786 0 1.423.633 1.423 1.413v3.058c0 .674.548 1.222 1.227 1.227h1.96a3.46 3.46 0 0 0 2.444-1 3.41 3.41 0 0 0 1.013-2.422V9.866c0-.735-.328-1.431-.895-1.902l-6.662-5.29a3.115 3.115 0 0 0-3.958.071L3.467 7.963A2.474 2.474 0 0 0 2.5 9.867v8.703C2.5 20.464 4.047 22 5.956 22h1.916c.327.002.641-.125.873-.354.232-.228.363-.54.363-.864h.036Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                    <span>Beranda</span>
+                  </li>
+                  <li class="kuncikarya_menu_item">
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M3 16.87V9.257h18v7.674C21 20.07 19.024 22 15.863 22H8.127C4.996 22 3 20.03 3 16.87Zm4.96-2.46a.822.822 0 0 1-.85-.799c0-.46.355-.84.81-.861.444 0 .81.351.82.8a.822.822 0 0 1-.78.86Zm4.06 0a.822.822 0 0 1-.85-.799c0-.46.356-.84.81-.861.445 0 .81.351.82.8a.822.822 0 0 1-.78.86Zm4.03 3.68a.847.847 0 0 1-.82-.85.831.831 0 0 1 .81-.849h.01c.465 0 .84.38.84.849 0 .47-.375.85-.84.85Zm-4.88-.85c.02.46.395.821.85.8a.821.821 0 0 0 .78-.859.817.817 0 0 0-.82-.801.855.855 0 0 0-.81.86Zm-4.07 0c.02.46.395.821.85.8a.821.821 0 0 0 .78-.859.817.817 0 0 0-.82-.801.855.855 0 0 0-.81.86Zm8.14-3.639c0-.46.356-.83.81-.84.445 0 .8.359.82.8a.82.82 0 0 1-.79.849.814.814 0 0 1-.84-.799v-.01Z"
+                        fill="currentColor"
+                      ></path>
+                      <path
+                        opacity=".4"
+                        d="M3.003 9.257c.013-.587.063-1.752.156-2.127.474-2.11 2.084-3.45 4.386-3.64h8.911c2.282.2 3.912 1.55 4.386 3.64.092.365.142 1.539.155 2.127H3.003Z"
+                        fill="currentColor"
+                      ></path>
+                      <path
+                        d="M8.305 6.59c.435 0 .76-.329.76-.77V2.771A.748.748 0 0 0 8.306 2c-.435 0-.76.33-.76.771V5.82c0 .441.325.77.76.77ZM15.695 6.59c.425 0 .76-.329.76-.77V2.771a.754.754 0 0 0-.76-.771c-.435 0-.76.33-.76.771V5.82c0 .441.325.77.76.77Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                    <span>Acara</span>
+                  </li>
+                  <li class="kuncikarya_menu_item">
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8.532 2.937a6.89 6.89 0 0 1 7.034.058C17.71 4.327 19.012 6.705 19 9.26c-.05 2.54-1.447 4.929-3.193 6.775a18.727 18.727 0 0 1-3.358 2.82 1.173 1.173 0 0 1-.408.144.82.82 0 0 1-.39-.119 18.515 18.515 0 0 1-4.839-4.547A9.28 9.28 0 0 1 5 9.134c-.001-2.562 1.347-4.928 3.532-6.197Zm1.262 7.258a2.378 2.378 0 0 0 2.198 1.497 2.339 2.339 0 0 0 1.683-.701c.446-.454.696-1.07.694-1.713a2.423 2.423 0 0 0-1.462-2.243 2.346 2.346 0 0 0-2.594.52 2.455 2.455 0 0 0-.519 2.64Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                    <span>Lokasi</span>
+                  </li>
+                  <li class="kuncikarya_menu_item">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 32 32"
+                      width="24"
+                      height="24"
+                      fill="none"
+                    >
+                      <path
+                        d="M16 2.00006C8.836 2.00006 3 7.83806 3 15.0001C3 17.7851 3.872 20.4271 5.387 22.5851L3 30.0001L10.708 27.7321C12.905 29.0171 15.389 30.0001 18 30.0001C25.164 30.0001 31 24.1621 31 17.0001C31 9.83706 25.164 2.00006 18 2.00006H16ZM18 27.0001C15.932 27.0001 13.957 26.4271 12.208 25.4411L11.692 25.1471L6.705 26.4821L7.926 22.0711L7.587 21.5861C6.105 19.3931 5.264 16.7461 5.264 14.0001C5.264 8.81006 9.79 4.00006 16 4.00006C22.209 4.00006 26.735 8.81006 26.735 14.0001C26.735 19.1901 22.209 24.0001 16 24.0001H15.946ZM20.721 19.6561C20.514 19.5611 18.842 18.7391 18.33 18.4901C17.819 18.2431 17.609 18.1721 17.399 18.4391C17.191 18.7071 16.726 19.2131 16.531 19.4211C16.337 19.6281 16.142 19.6461 15.935 19.5531C15.729 19.4591 14.978 19.2191 14.033 18.4811C13.218 17.8281 12.648 17.0551 12.451 16.8231C12.255 16.5911 12.389 16.4331 12.48 16.3381C12.571 16.2441 12.668 16.1081 12.764 15.9931C12.86 15.8771 12.884 15.7981 12.972 15.6051C13.061 15.4111 13.026 15.2431 12.972 15.1501C12.919 15.0581 12.397 13.7731 12.142 13.1341C11.886 12.4971 11.632 12.5731 11.494 12.5731C11.372 12.5731 11.264 12.5731 11.155 12.5731C11.046 12.5731 10.919 12.5901 10.786 12.6291C10.652 12.6671 10.444 12.7671 10.305 13.0561C10.166 13.3441 9.736 14.0931 9.736 15.0231C9.736 15.9531 10.466 16.8681 10.573 17.0071C10.68 17.1451 12.05 19.1601 13.948 20.0731C15.845 20.9861 16.056 21.0201 16.514 21.0931C16.972 21.1661 17.758 20.9351 18.081 20.8061C18.405 20.6771 19.53 20.0591 19.728 19.8401C19.925 19.6221 20.066 19.4111 20.161 19.3031C20.256 19.1961 20.426 18.9761 20.721 19.0561Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+
+                    <span>Kontak</span>
+                  </li>
+                </ul>
+              </div>
+              <!-- end invitation -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- lightbox -->
+      <div id="lightboxWrapper" class="lightbox-wrapper">
+        <div class="lightbox-list"></div>
+        <a href="#" id="lightboxCloseBtn" class="btn-lightbox">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            width="24"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 0 1 1.414 0L10 8.586l4.293-4.293a1 1 0 1 1 1.414 1.414L11.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L8.586 10 4.293 5.707a1 1 0 0 1 0-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </a>
+        <div class="lightbox-navigation">
+          <a
+            href="#"
+            id="lightboxPrevBtn"
+            class="lightbox-arrow"
+            data-index="0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              width="24"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m15 19-7-7 7-7"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            id="lightboxNextBtn"
+            class="lightbox-arrow"
+            data-index="0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              width="24"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m9 5 7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <!-- end lightbox -->
+    </main>
+    <!-- start script -->
+    <script
+      src="js/theme-app.js"
+      type="78ce446cf7bdbcddcb5aa9a9-text/javascript"
+    ></script>
+    <script
+      src="js/themesv2.js"
+      type="78ce446cf7bdbcddcb5aa9a9-text/javascript"
+    ></script>
+    <!-- end script -->
+    <script type="78ce446cf7bdbcddcb5aa9a9-text/javascript"></script>
+    <script
+      src="js/rocket-loader.min.js"
+      data-cf-settings="78ce446cf7bdbcddcb5aa9a9-|49"
+      defer=""
+    ></script>
+  </body>
+</html>
